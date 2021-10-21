@@ -35,12 +35,5 @@ public class QueryWrapperTest {
         roles.forEach(System.out::println);
     }
 
-    /**
-     * selectPage。物理分页
-     */
-    @Test
-    public void selectPage() {
-
-    }
 
 }

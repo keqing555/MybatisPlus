@@ -1,6 +1,7 @@
 package com.mybatisplus.autogenerator.controller;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.mybatisplus.autogenerator.bean.Role;
 import com.mybatisplus.autogenerator.mapper.RoleMapper;
 import com.mybatisplus.autogenerator.service.RoleService;
@@ -26,17 +27,16 @@ import java.util.List;
 public class RoleController {
     @Autowired
     private RoleService roleService;
-    @Autowired
-    private RoleMapper roleMapper;
 
     @RequestMapping("get")
-    @ResponseBody
-    public List<Role> get(int rid) {
-        List<Role> roleList = new ArrayList<>();
+    public Role get(int rid) {
+        Role role = new Role();
         if (roleService != null) {
-            roleList = roleService.list();
+            QueryWrapper queryWrapper = new QueryWrapper();
+            queryWrapper.eq("rid", rid);
+            role = roleService.getOne(queryWrapper);
         }
-        return roleList;
+        return role;
     }
 }
 
