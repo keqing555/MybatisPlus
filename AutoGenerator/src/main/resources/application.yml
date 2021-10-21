@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql:///genshin
+    username: root
+    password: root
+logging:
+  level:
+    com:
+      mybatisplus:
+        autogenerator:
+          mapper: debug
+
